@@ -1,0 +1,33 @@
+# You can add your own commands here! For documentation, see: https://ublue.it/guide/just/
+import "/usr/share/ublue-os/justfile"
+
+first-install:
+    flatpak install \
+      flathub com.bitwarden.desktop -y \
+      flathub com.brave.Browser -y \
+      flathub com.discordapp.Discord -y \
+      flathub com.github.IsmaelMartinez.teams_for_linux -y \
+      flathub com.github.vladimiry.ElectronMail -y \
+      flathub com.github.zocker_160.SyncThingy -y \
+      flathub com.microsoft.AzureStorageExplorer -y \
+      flathub com.microsoft.Edge -y \
+      flathub com.rtosta.zapzap -y \
+      flathub io.dbeaver.DBeaverCommunity
+      flathub io.github.mahmoudbahaa.outlook_for_linux -y \
+      flathub io.gitlab.librewolf-community -y \
+      flathub net.cozic.joplin_desktop -y \
+      flathub org.gimp.GIMP -y \
+      flathub org.libreoffice.LibreOffice -y \
+      flathub org.raspberrypi.rpi-imager -y \
+      flathub org.remmina.Remmina -y 
+
+    brew install \
+      chezmoi
+      neovim
+
+    # setup oh-my-zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
+    git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
