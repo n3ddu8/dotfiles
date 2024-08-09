@@ -25,6 +25,15 @@ first-install:
       chezmoi
       neovim
 
+    # install NoiseTorch
+    wget https://github.com/noisetorch/NoiseTorch/releases/download/v0.12.2/NoiseTorch_x64_v0.12.2.tgz
+    tar -C $HOME -h -xzf NoiseTorch_x64_v0.12.2.tgz
+    sudo setcap 'CAP_SYS_RESOURCE=+ep' ~/.local/bin/noisetorch
+    rm NoiseTorch_x64_v0.12.2.tgz
+
+    # install tgpt
+    curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
+
     # setup oh-my-zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
     git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k

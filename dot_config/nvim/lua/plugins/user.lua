@@ -11,6 +11,12 @@ return {
   {
     "NoahTheDuke/vim-just",
     ft = { "just" },
+  },
+
+  "Exafunction/codeium.vim",
+  {
+  "Exafunction/codeium.vim",
+  event = "BufEnter"
   }
 --
   -- "andweeb/presence.nvim",
