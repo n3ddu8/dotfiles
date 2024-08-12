@@ -11,6 +11,7 @@ first-install:
       flathub com.github.zocker_160.SyncThingy \
       flathub com.microsoft.AzureStorageExplorer \
       flathub com.microsoft.Edge \
+      flathub im.riot.Riot \  # Element
       flathub io.dbeaver.DBeaverCommunity \
       flathub io.github.mahmoudbahaa.outlook_for_linux \
       flathub io.gitlab.librewolf-community \
