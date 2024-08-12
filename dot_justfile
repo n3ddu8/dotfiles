@@ -11,7 +11,6 @@ first-install:
       flathub com.github.zocker_160.SyncThingy \
       flathub com.microsoft.AzureStorageExplorer \
       flathub com.microsoft.Edge \
-      flathub com.rtosta.zapzap \
       flathub io.dbeaver.DBeaverCommunity \
       flathub io.github.mahmoudbahaa.outlook_for_linux \
       flathub io.gitlab.librewolf-community \
@@ -21,7 +20,8 @@ first-install:
       flathub org.libreoffice.LibreOffice \
       flathub org.raspberrypi.rpi-imager \
       flathub org.remmina.Remmina \
-      flathub sh.cider.Cider -y
+      flathub sh.cider.Cider \
+      io.github.mimbrero.WhatsAppDesktop -y
 
     brew install \
       chezmoi \
