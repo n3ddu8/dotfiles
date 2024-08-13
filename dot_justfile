@@ -13,7 +13,6 @@ first-install:
       flathub com.microsoft.Edge \
       flathub im.riot.Riot \  # Element
       flathub io.dbeaver.DBeaverCommunity \
-      flathub io.github.mahmoudbahaa.outlook_for_linux \
       flathub io.gitlab.librewolf-community \
       flathub net.cozic.joplin_desktop \
       flathub org.gimp.GIMP \
