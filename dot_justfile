@@ -24,8 +24,13 @@ first-install:
       io.github.mimbrero.WhatsAppDesktop -y
 
     brew install \
+      ansible \
       chezmoi \
       neovim
+
+    ansible-galaxy install \
+      ansible-posix \
+      community.general
 
     # install NoiseTorch
     wget https://github.com/noisetorch/NoiseTorch/releases/download/v0.12.2/NoiseTorch_x64_v0.12.2.tgz
