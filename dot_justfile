@@ -1,4 +1,7 @@
 # You can add your own commands here! For documentation, see: https://ublue.it/guide/just/
+
+# run wget https://raw.githubusercontent.com/n3ddu8/dotfiles/main/dot_justfile && mv dot_justfile ~/.justfile
+
 import "/usr/share/ublue-os/justfile"
 
 first-install:
@@ -34,4 +37,9 @@ first-install:
 
     # install tgpt
     curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
+
+    # add dotfiles
+    git clone https://github.com/n3ddu8/dotfiles.git $HOME/.local/share/chezmoi
+    chezmoi apply
+
 
