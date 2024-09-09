@@ -42,4 +42,10 @@ first-install:
     git clone https://github.com/n3ddu8/dotfiles.git $HOME/.local/share/chezmoi
     chezmoi apply
 
+    # run uJust scripts
+    ujust toggle-tailscale  
+    ujust setup-cockpit  
+    ujust dx-group  
+    ujust bluefin-cli  
+    ujust install-incus
 
