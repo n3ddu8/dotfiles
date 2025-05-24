@@ -1,0 +1,9 @@
+import "/usr/share/ublue-os/justfile"
+flatpak install flathub com.bitwarden.desktop
+flatpak install flathub com.discordapp.Discord
+flatpak install flathub com.github.vladimiry.ElectronMail
+flatpak install flathub io.dbeaver.DBeaverCommunity
+flatpak install flathub io.github.peazip.PeaZip
+flatpak install flathub io.github.peazip.PeaZip.Addon.i386
+flatpak install flathub md.obsidian.Obsidian
+flatpak install flathub org.raspberrypi.rpi-imager
