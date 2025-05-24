@@ -1,0 +1,11 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[user]
+	email = 13167147+n3ddu8@users.noreply.github.com
+	name = n3ddu8
+[core]
+	editor = nvim
