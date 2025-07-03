@@ -9,3 +9,5 @@
 	name = n3ddu8
 [core]
 	editor = nvim
+[credential]
+        helper = !'/usr/local/bin/devpod' agent git-credentials --port 12049
