@@ -12,7 +12,35 @@ def _generate_file(
     trust: str,
 ) -> None:
     """
-    ...
+    Generate a shell script for launching a Harlequin instance.
+
+    Ensure the .local/bin directory exists and creates it if not.
+    Based on the given arguments, generates a shell script for
+    intstantiating a connection to a SQL Server instance using 
+    harlequin. Assumes harlequin is installed, if not it can be
+    installed using pipx:
+    ```shell
+    pipx install harlequin[odbc]
+    ```
+
+    Args:
+        filename (String): Filename for the shell script.
+            This will also be the command that is run to
+            instantiate the connection.
+        driver (Sring): The installed ODBC driver.
+            For example, ODBC Driver 18 for SQL Server.
+        server (Sring): The DNS name or IP address for the
+            SQL Server instance.
+        port (Integer): The port the SQL Server instance is
+            exposed over. This is usually 1433.
+        uid (String): Username for the SQL Server instance.
+        pwd (String): Password for the SQL Server instance.
+        trust (String): Indicates whether to trust the SQL
+            Server instance certificate. Expected responses
+            are yes or no.
+
+    Returns:
+        None.
     """
 
     content = "#!/bin/bash\n"
@@ -33,6 +61,18 @@ def _generate_file(
         file.write(content)
 
 def run():
+    """
+    Generate a shell script for launching a Harlequin instance.
+
+    Gathers input from user and calls _generate_file.
+
+    Args:
+        None.
+
+    Returns:
+        None.
+    """
+
     filename = input("Filename: ")
     driver = input("Driver: ")
     server = input("Server: ")
@@ -55,4 +95,3 @@ def run():
 if __name__ == "__main__":
 
     run()
-
