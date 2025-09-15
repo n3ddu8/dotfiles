@@ -1,0 +1,58 @@
+#!/usr/bin/env python
+import os
+from getpass import getpass
+
+def _generate_file(
+    filename: str,
+    driver: str,
+    server: str,
+    port: int,
+    uid: str,
+    pwd: str,
+    trust: str,
+) -> None:
+    """
+    ...
+    """
+
+    content = "#!/bin/bash\n"
+    content += (
+        "harlequin -a odbc 'Driver={"
+        f"{driver}"
+        "};"
+        f"Server={server},"
+        f"{port};"
+        f"Uid={uid};"
+        f"Pwd={pwd};"
+        "Encrypt=yes;"
+        f"TrustServerCertificate={trust};"
+        "Connection Timeout=30;'"
+    )
+
+    with open(f"{filename}.sh", "w") as file:
+        file.write(content)
+
+def run():
+    filename = input("Filename: ")
+    driver = input("Driver: ")
+    server = input("Server: ")
+    port = input("Port: ")
+    uid = input("Username: ")
+    pwd = getpass()
+    trust = input("Trust Certficate (yes|no): ")
+
+    _generate_file(
+        filename,
+        driver,
+        server,
+        port,
+        uid,
+        pwd,
+        trust,
+    )
+
+
+if __name__ == "__main__":
+
+    run()
+
