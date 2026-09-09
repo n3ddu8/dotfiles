@@ -1,0 +1,42 @@
+name: Bootstrap smoke test
+
+on:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    container: ubuntu:22.04
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Homebrew prerequisites
+        run: |
+          apt-get update
+          DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+            build-essential \
+            ca-certificates \
+            curl \
+            file \
+            git \
+            procps \
+            sudo
+
+      - name: Create an unprivileged test user
+        run: |
+          useradd --create-home --shell /bin/bash dotfiles
+          echo "dotfiles ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/dotfiles
+          chmod 0440 /etc/sudoers.d/dotfiles
+          chown -R dotfiles:dotfiles "$GITHUB_WORKSPACE"
+
+      - name: Bootstrap dotfiles
+        run: |
+          su - dotfiles -s /bin/bash -c "export SHELL=/bin/bash; cd '$GITHUB_WORKSPACE'; ./bootstrap.sh"
+
+      - name: Verify a new shell finds the installed tools
+        run: |
+          su - dotfiles -s /bin/bash -c 'export SHELL=/bin/bash; bash -ic "command -v brew; command -v bat; command -v fd; command -v fzf; command -v gh; command -v jq; command -v rg; command -v stow"'
